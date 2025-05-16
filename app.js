@@ -1,7 +1,7 @@
 const main = function () {
     const x = 1;
 
-    getX: () => {
+    getX = () => {
         return x;
     }
 
@@ -10,4 +10,5 @@ const main = function () {
     }
 }
 
-console.log(main.getX);
+Main = main();
+console.log(Main.getX());
