@@ -7,7 +7,7 @@ const main = function () {
 
     return {
         getX
-    }
+    };
 }
 
 Main = main();
