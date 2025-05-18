@@ -11,4 +11,4 @@ const main = function () {
 }
 
 Main = main();
-console.log(Main.getX());
+console.log(Main.getX())
