@@ -9,6 +9,13 @@ const main = function () {
         getX
     };
 }
+const board = function () {
+    
+}
+
+const player = function () {
+        
+}
 
 Main = main();
 console.log(Main.getX())
