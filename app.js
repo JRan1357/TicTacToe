@@ -9,13 +9,30 @@ const main = function () {
         getX
     };
 }
-const board = function () {
+
+const game = function () {
     
 }
 
 const player = function () {
+    createPlayer = (name, marker) => {
         
+    }
 }
 
-Main = main();
-console.log(Main.getX())
+const board = function () {
+    let board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',];
+
+    getBoard = () => {
+        return board
+    }
+
+    return {
+        getBoard,
+    };
+}
+
+
+
+Board = board();
+console.log(Board.getBoard());
