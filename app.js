@@ -12,7 +12,7 @@ const main = function () {
 
 const game = function () {
     
-}
+};
 
 const player = function () {
     createPlayer = (name, marker) => {
