@@ -11,7 +11,13 @@ const main = function () {
 }
 
 const game = function () {
+    //function to add marker
+
+    //check collison 
+
+    // add marker to board array
     
+    // check win
 };
 
 const player = function () {
@@ -21,9 +27,45 @@ const player = function () {
 }
 
 const board = function () {
-    let board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',];
-    let noughts = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',];
-    let crosses = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',];
+    let board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+    let naughts = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+    let crosses = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+    let winConditions = [
+        // horizontal
+        ['c', 'c', 'c',
+         ' ', ' ', ' ',
+         ' ', ' ', ' '],
+        
+        [' ', ' ', ' ',
+         'c', 'c', 'c',
+         ' ', ' ', ' '],
+
+        [' ', ' ', ' ',
+         ' ', ' ', ' ',
+         'c', 'c', 'c'],
+
+        //vertical
+        ['c', ' ', ' ',
+         'c', ' ', ' ',
+         'c', ' ', ' '],
+
+        [' ', 'c', ' ',
+         ' ', 'c', ' ',
+         ' ', 'c', ' '],
+
+        [' ', ' ', 'c',
+         ' ', ' ', 'c',
+         ' ', ' ', 'c'],
+        
+        // diagonal
+        ['c', ' ', ' ',
+         ' ', 'c', ' ',
+         ' ', ' ', 'c'],
+        
+        [' ', ' ', 'c',
+         ' ', 'c', ' ',
+         'c', ' ', ' '],
+    ]
 
     getBoard = () => {
         return board
