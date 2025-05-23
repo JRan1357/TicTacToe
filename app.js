@@ -22,6 +22,8 @@ const player = function () {
 
 const board = function () {
     let board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',];
+    let noughts = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',];
+    let crosses = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',];
 
     getBoard = () => {
         return board
@@ -31,8 +33,6 @@ const board = function () {
         getBoard,
     };
 }
-
-
 
 Board = board();
 console.log(Board.getBoard());
