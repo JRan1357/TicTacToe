@@ -98,6 +98,7 @@ const Board = function () {
         } else {
             console.log('Position already occupied!');
         }
+        checkWin(marker);
     }
 
     const drawToBoard = (position, marker) => {
@@ -120,9 +121,22 @@ const Board = function () {
         }
     }
 
-    const checkWin = () => {
+    const checkWin = (marker) => {
+        console.log('marker: ', marker);
+        console.log('board: ', markerBoards[marker]);
         winConditions.forEach((array) => {
-            console.log(array);
+            let count = 0;
+            array.forEach((item, index) => {
+                
+                if (item == 'c' && markerBoards[marker][index] != ' ') {
+                    count++
+                }
+                if (count == 3) {
+                    console.log(`${marker} wins!`);
+                    process.exit();
+                    
+                }
+            })
         })
     }
 
@@ -140,17 +154,15 @@ const board = Board();
 const game = Game(board);
 const player = Player();
 
-console.log(board.getBoard());
-
 board.addMarker('naught', 0);
-board.addMarker('cross', 5);
-board.addMarker('naught', 2);
-board.addMarker('naught', 1);
-board.addMarker('cross', 7);
-board.addMarker('naught', 3);
-board.addMarker('cross', 2);
-board.addMarker('naught', 3);
-
-console.log(board.getMarkerBoards());
 console.log(board.getBoard());
-board.checkWin();
+board.addMarker('cross', 5);
+console.log(board.getBoard());
+board.addMarker('naught', 2);
+console.log(board.getBoard());
+board.addMarker('cross', 7);
+console.log(board.getBoard());
+board.addMarker('naught', 1);
+console.log(board.getBoard());
+
+
