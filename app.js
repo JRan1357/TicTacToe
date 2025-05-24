@@ -106,6 +106,9 @@ const Board = function () {
 
     return {
         getBoard,
+        getMarkerBoards,
+        addMarker,
+
     };
 }
 
