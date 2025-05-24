@@ -14,10 +14,7 @@ const Main = function () {
 }
 
 const Game = function (board) {
-    const markers = {
-        'naught': 'o',
-        'cross': 'x'
-    };
+
 
     //function to add marker
     const addMarker = (marker, position) => {
@@ -45,9 +42,17 @@ const Player = function () {
 }
 
 const Board = function () {
+    const markers = {
+        'naught': 'o',
+        'cross': 'x'
+    };
+
+    let markerBoards = {
+        'naughts': [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        'crosses': [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+    }
+
     let board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
-    let naughts = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
-    let crosses = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
     let winConditions = [
         // horizontal
         ['c', 'c', 'c',
@@ -86,12 +91,17 @@ const Board = function () {
     ]
 
     const addMarker = (marker, position) => {
-        console.log(`adding ${marker} at ${postion}`);
-        
+        console.log(`adding ${marker} at ${position}`);
+        markerBoards[marker].splice(position, 1, markers[marker]);
+
     }
     
     const getBoard = () => {
         return board
+    }
+
+    const getMarkerBoards = () => {
+        return markerBoards
     }
 
     return {
@@ -106,4 +116,5 @@ const player = Player();
 
 console.log(board.getBoard());
 
-game.addMarker('naught', 2)
+game.addMarker('naught', 2);
+console.log(board.getMarkerBoards());
