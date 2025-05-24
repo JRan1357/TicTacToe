@@ -1,18 +1,5 @@
 "use strict";
 
-
-const Main = function () {
-    const x = 1;
-
-    const getX = () => {
-        return x;
-    }
-
-    return {
-        getX
-    };
-}
-
 const Game = function (board) {
 
 
@@ -103,6 +90,7 @@ const Board = function () {
 
     const drawToBoard = (position, marker) => {
         board.splice(position, 1, markers[marker]);
+        console.log(board);
     }
     
     const getBoard = () => {
@@ -123,7 +111,6 @@ const Board = function () {
 
     const checkWin = (marker) => {
         console.log('marker: ', marker);
-        console.log('board: ', markerBoards[marker]);
         winConditions.forEach((array) => {
             let count = 0;
             array.forEach((item, index) => {
@@ -155,14 +142,10 @@ const game = Game(board);
 const player = Player();
 
 board.addMarker('naught', 0);
-console.log(board.getBoard());
 board.addMarker('cross', 5);
-console.log(board.getBoard());
 board.addMarker('naught', 2);
-console.log(board.getBoard());
 board.addMarker('cross', 7);
-console.log(board.getBoard());
 board.addMarker('naught', 1);
-console.log(board.getBoard());
+
 
 
