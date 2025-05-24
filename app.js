@@ -14,7 +14,6 @@ const Main = function () {
 }
 
 const Game = function (board) {
-    let board = board;
     const markers = {
         'naught': 'o',
         'cross': 'x'
@@ -22,7 +21,8 @@ const Game = function (board) {
 
     //function to add marker
     const addMarker = (marker, position) => {
-        board.marker.splice(position, 1, markers[marker])
+        console.log("adding marker!");
+        board.splice(position, 1, markers[marker])
     }
     //check collison
 
@@ -85,6 +85,11 @@ const Board = function () {
          'c', ' ', ' '],
     ]
 
+    const addMarker = (marker, position) => {
+        console.log(`adding ${marker} at ${postion}`);
+        
+    }
+    
     const getBoard = () => {
         return board
     }
