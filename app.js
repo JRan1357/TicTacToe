@@ -13,7 +13,7 @@ const Main = function () {
     };
 }
 
-const Game = function () {
+const Game = function (board) {
     const markers = {
         'naught': 'o',
         'cross': 'x'
@@ -28,6 +28,8 @@ const Game = function () {
     // add marker to board array
     
     // check win
+
+    // utility functions
     
     return {
         addMarker,
@@ -82,7 +84,7 @@ const Board = function () {
          'c', ' ', ' '],
     ]
 
-    getBoard = () => {
+    const getBoard = () => {
         return board
     }
 
@@ -91,8 +93,9 @@ const Board = function () {
     };
 }
 
+const main = Main();
 const board = Board();
-console.log(Game.markers);
-console.log(board);
-game.addMarker('cross', 2);
-console.log(Board.board)
+const game = Game(board);
+const player = Player();
+
+console.log(board.getBoard());
