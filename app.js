@@ -14,6 +14,7 @@ const Main = function () {
 }
 
 const Game = function (board) {
+    let board = board;
     const markers = {
         'naught': 'o',
         'cross': 'x'
@@ -99,3 +100,5 @@ const game = Game(board);
 const player = Player();
 
 console.log(board.getBoard());
+
+game.addMarker('naught', 2)
