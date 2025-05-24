@@ -116,5 +116,5 @@ const player = Player();
 
 console.log(board.getBoard());
 
-game.addMarker('naught', 2);
+board.addMarker('naught', 2);
 console.log(board.getMarkerBoards());
