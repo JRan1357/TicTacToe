@@ -94,9 +94,14 @@ const Board = function () {
         console.log(`adding ${marker} at ${position}`);
         if (positionFree(position)) {
             markerBoards[marker].splice(position, 1, markers[marker]);
+            drawToBoard(position, marker);
         } else {
             console.log('Position already occupied!');
         }
+    }
+
+    const drawToBoard = (position, marker) => {
+        board.splice(position, 1, markers[marker]);
     }
     
     const getBoard = () => {
@@ -115,10 +120,19 @@ const Board = function () {
         }
     }
 
+    const checkWin = () => {
+        winConditions.forEach(array.forEach(
+            subArray => {
+                console.log(`checking: ${subArray}`)
+            }
+        ))
+    }
+
     return {
         getBoard,
         getMarkerBoards,
         addMarker,
+        checkWin,
 
     };
 }
@@ -130,7 +144,15 @@ const player = Player();
 
 console.log(board.getBoard());
 
+board.addMarker('naught', 0);
+board.addMarker('cross', 5);
 board.addMarker('naught', 2);
+board.addMarker('naught', 1);
+board.addMarker('cross', 7);
 board.addMarker('naught', 3);
-board.addMarker('naught', 2);
+board.addMarker('cross', 2);
+board.addMarker('naught', 3);
+
 console.log(board.getMarkerBoards());
+console.log(board.getBoard());
+board.checkWin();
