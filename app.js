@@ -121,11 +121,9 @@ const Board = function () {
     }
 
     const checkWin = () => {
-        winConditions.forEach(array.forEach(
-            subArray => {
-                console.log(`checking: ${subArray}`)
-            }
-        ))
+        winConditions.forEach((array) => {
+            console.log(array);
+        })
     }
 
     return {
