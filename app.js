@@ -92,8 +92,11 @@ const Board = function () {
 
     const addMarker = (marker, position) => {
         console.log(`adding ${marker} at ${position}`);
-        markerBoards[marker].splice(position, 1, markers[marker]);
-
+        if (positionFree(position)) {
+            markerBoards[marker].splice(position, 1, markers[marker]);
+        } else {
+            console.log('Position already occupied!');
+        }
     }
     
     const getBoard = () => {
@@ -102,6 +105,14 @@ const Board = function () {
 
     const getMarkerBoards = () => {
         return markerBoards
+    }
+
+    const positionFree = (position) => {
+        if (board[position] == ' ') {
+            return true
+        } else {
+            return false
+        }
     }
 
     return {
@@ -119,5 +130,7 @@ const player = Player();
 
 console.log(board.getBoard());
 
+board.addMarker('naught', 2);
+board.addMarker('naught', 3);
 board.addMarker('naught', 2);
 console.log(board.getMarkerBoards());
