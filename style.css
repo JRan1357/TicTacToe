@@ -21,8 +21,9 @@ body{
     display: grid;
     grid-template-columns: 3fr 2fr;
     grid-template-rows: 1fr;
+    gap: 20px;
 
-    justify-items: left;
+    justify-items: start;
     align-items: center;
 }
 
@@ -38,8 +39,8 @@ body{
     grid-template-columns: 30% 30% 30%;
     gap: 10px;
 
-    height: 50%;
-    width: 90%;
+    height: 60vh;
+    width: 60vh;
 
     background-color: rgb(172, 210, 243);
     justify-content: center;
@@ -49,6 +50,8 @@ body{
     margin-top: 10%;
 
     border-radius: 20px;
+
+    aspect-ratio: 1/1;
 }
 
 .cell{
@@ -70,4 +73,13 @@ body{
     padding: 10px;
     margin-right: 10px;
     margin-left: 20px;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+
+tr{
+    border-bottom: solid 2px black;
 }

@@ -1,24 +1,7 @@
 "use strict";
 
 const Game = function (board) {
-
-
-    //function to add marker
-    const addMarker = (marker, position) => {
-        console.log("adding marker!");
-        board.splice(position, 1, markers[marker])
-    }
-    //check collison
-
-    // add marker to board array
     
-    // check win
-
-    // utility functions
-    
-    return {
-        addMarker,
-    };
 };
 
 
@@ -120,7 +103,6 @@ const Board = function () {
                 }
                 if (count == 3) {
                     console.log(`${marker} wins!`);
-                    process.exit();
                     
                 }
             })
@@ -140,9 +122,9 @@ const board = Board();
 const game = Game(board);
 const player = Player();
 
-board.addMarker('naught', 0);
-board.addMarker('cross', 5);
-board.addMarker('naught', 2);
-board.addMarker('cross', 7);
-board.addMarker('naught', 1);
+// board.addMarker('naught', 0);
+// board.addMarker('cross', 5);
+// board.addMarker('naught', 2);
+// board.addMarker('cross', 7);
+// board.addMarker('naught', 1);
 
