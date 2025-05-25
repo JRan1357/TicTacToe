@@ -23,13 +23,6 @@ const Game = function (board, utility) {
             utility.changeText(board.getBoard()[i], i.toString());
         }
     }
-    // track current player
-
-    // switch player after placement
-
-    // send marker position to Board module
-
-    // draw board from board index
 
     const inputMarker = (id) => {
         // switches marker between turns
