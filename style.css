@@ -1,0 +1,26 @@
+body{
+    background-color: rgb(131, 131, 209);
+    width: 100vw;
+    height: 100vh;
+}
+
+#board{
+    display: grid;
+    grid-template-rows: 3;
+    grid-template-columns: 3;
+    gap: 10px;
+
+    height: 50%;
+    width: 60%;
+
+    background-color: rgb(172, 210, 243);
+}
+
+
+.cell{
+    background-color: #9ea3ff;
+
+    border-radius: 10px;
+    margin: 5px;
+}
+
