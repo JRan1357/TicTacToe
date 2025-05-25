@@ -15,6 +15,8 @@ const Utility = function () {
 
 
 const Game = function (board, utility) {
+    let turnCount = 0;
+    let marker = 'naught';
     // track current player
 
     // switch player after placement
@@ -23,14 +25,30 @@ const Game = function (board, utility) {
 
     // draw board from board index
 
-    const mainLoop = () => {
-        const player = 'naughts'
+    const inputMarker = (id) => {
+        // switches marker between turns
+        if (turnCount % 2 == 0) {
+            marker = 'naught';
+        } else {
+            marker = 'cross';
+        }
+        
+        board.addMarker(marker, parseInt(id))
+        console.log(board.getBoard());
 
-        // display current player
+
+        turnCount++
+        drawBoard(board);
     }
 
-    const displayPlayer = (player) => {
+    const drawBoard = (board) => {
+        for (let i = 0; i < 10; i++){
+            utility.changeText(board[i], i);
+        }
+    }
 
+    return {
+        drawUiMarker,
     }
 
 };
@@ -154,7 +172,6 @@ const board = Board();
 const game = Game(board);
 const player = Player();
 
-utility.changeText('yert', 'currentPlayer');
 
 // board.addMarker('naught', 0);
 // board.addMarker('cross', 5);
