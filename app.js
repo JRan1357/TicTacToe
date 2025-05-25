@@ -11,12 +11,15 @@ const Utility = function () {
     }
 }
 
-
-
-
 const Game = function (board, utility) {
     let turnCount = 0;
     let marker = 'naught';
+
+    const drawBoard = () => {
+        for (let i = 0; i < 10; i++) {
+            utility.changeText(board[i], i);
+        }
+    }
     // track current player
 
     // switch player after placement
@@ -41,14 +44,8 @@ const Game = function (board, utility) {
         drawBoard(board);
     }
 
-    const drawBoard = (board) => {
-        for (let i = 0; i < 10; i++){
-            utility.changeText(board[i], i);
-        }
-    }
-
     return {
-        drawUiMarker,
+        inputMarker,
     }
 
 };
@@ -169,5 +166,5 @@ const Board = function () {
 
 const utility = Utility();
 const board = Board();
-const game = Game(board);
+const game = Game(board, utility);
 
