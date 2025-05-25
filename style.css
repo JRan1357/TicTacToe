@@ -1,26 +1,43 @@
+:root*{
+    border: 0;
+    margin: 0;
+
+}
+
 body{
     background-color: rgb(131, 131, 209);
     width: 100vw;
     height: 100vh;
+
 }
 
 #board{
     display: grid;
-    grid-template-rows: 3;
-    grid-template-columns: 3;
+    grid-template-rows: 30% 30% 30%;
+    grid-template-columns: 30% 30% 30%;
     gap: 10px;
 
     height: 50%;
     width: 60%;
 
     background-color: rgb(172, 210, 243);
-}
+    justify-content: center;
+    align-content: center;
 
+    margin: auto;
+    margin-top: 20%;
+
+    border-radius: 20px;
+}
 
 .cell{
     background-color: #9ea3ff;
 
     border-radius: 10px;
-    margin: 5px;
+}
+
+.cell:hover{
+    background-color: rgb(106, 106, 255);
+    box-shadow: 10px 10px 30px black;
 }
 
