@@ -5,12 +5,12 @@ const Utility = function () {
         console.log('target id:', targetID, '\ntext: ', text);
         let html = document.getElementById(targetID);
         html.textContent = text;
-    }
+    };
 
     return {
         changeText
-    }
-}
+    };
+};
 
 const Game = function (board, utility) {
     let turnCount = 0;
@@ -21,8 +21,8 @@ const Game = function (board, utility) {
         console.log('board: ', board.getBoard());
         for (let i = 0; i < 10; i++) {
             utility.changeText(board.getBoard()[i], i.toString());
-        }
-    }
+        };
+    };
 
     const inputMarker = (id) => {
         // switches marker between turns
@@ -30,18 +30,18 @@ const Game = function (board, utility) {
             marker = 'naught';
         } else {
             marker = 'cross';
-        }
+        };
         
         board.addMarker(marker, parseInt(id))
         console.log(board.getBoard());
 
         turnCount++
         drawBoard(board);
-    }
+    };
 
     return {
         inputMarker,
-    }
+    };
 
 };
 
@@ -75,44 +75,44 @@ const Board = function () {
     let markerBoards = {
         'naught': [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
         'cross': [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-    }
+    };
 
     let board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
     let winConditions = [
         // horizontal
         ['c', 'c', 'c',
-         ' ', ' ', ' ',
-         ' ', ' ', ' '],
+            ' ', ' ', ' ',
+            ' ', ' ', ' '],
         
         [' ', ' ', ' ',
-         'c', 'c', 'c',
-         ' ', ' ', ' '],
+            'c', 'c', 'c',
+            ' ', ' ', ' '],
 
         [' ', ' ', ' ',
-         ' ', ' ', ' ',
-         'c', 'c', 'c'],
+            ' ', ' ', ' ',
+            'c', 'c', 'c'],
 
         //vertical
         ['c', ' ', ' ',
-         'c', ' ', ' ',
-         'c', ' ', ' '],
+            'c', ' ', ' ',
+            'c', ' ', ' '],
 
         [' ', 'c', ' ',
-         ' ', 'c', ' ',
-         ' ', 'c', ' '],
+            ' ', 'c', ' ',
+            ' ', 'c', ' '],
 
         [' ', ' ', 'c',
-         ' ', ' ', 'c',
-         ' ', ' ', 'c'],
+            ' ', ' ', 'c',
+            ' ', ' ', 'c'],
         
         // diagonal
         ['c', ' ', ' ',
-         ' ', 'c', ' ',
-         ' ', ' ', 'c'],
+            ' ', 'c', ' ',
+            ' ', ' ', 'c'],
         
         [' ', ' ', 'c',
-         ' ', 'c', ' ',
-         'c', ' ', ' '],
+            ' ', 'c', ' ',
+            'c', ' ', ' '],
     ]
 
     const addMarker = (marker, position) => {
@@ -122,30 +122,30 @@ const Board = function () {
             drawToBoard(position, marker);
         } else {
             console.log('Position already occupied!');
-        }
+        };
         checkWin(marker);
-    }
+    };
 
     const drawToBoard = (position, marker) => {
         board.splice(position, 1, markers[marker]);
         console.log(board);
-    }
+    };
     
     const getBoard = () => {
         return board
-    }
+    };
 
     const getMarkerBoards = () => {
         return markerBoards
-    }
+    };
 
     const positionFree = (position) => {
         if (board[position] == ' ') {
             return true
         } else {
             return false
-        }
-    }
+        };
+    };
 
     const checkWin = (marker) => {
         console.log('marker: ', marker);
@@ -155,14 +155,14 @@ const Board = function () {
                 
                 if (item == 'c' && markerBoards[marker][index] != ' ') {
                     count++
-                }
+                };
                 if (count == 3) {
                     console.log(`${marker} wins!`);
                     
-                }
-            })
-        })
-    }
+                };
+            });
+        });
+    };
 
     return {
         getBoard,
@@ -171,7 +171,7 @@ const Board = function () {
         checkWin,
 
     };
-}
+};
 
 const utility = Utility();
 const board = Board();
