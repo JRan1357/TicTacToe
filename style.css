@@ -55,9 +55,18 @@ body{
 }
 
 .cell{
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+
     background-color: #9ea3ff;
 
     border-radius: 10px;
+
+    font-size: xx-large;
+    font-weight: bolder;
+
+    
 }
 
 .cell:hover{

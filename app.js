@@ -2,6 +2,7 @@
 
 const Utility = function () {
     const changeText = (text, targetID) => {
+        console.log('target id:', targetID, '\ntext: ', text);
         let html = document.getElementById(targetID);
         html.textContent = text;
     }
@@ -16,8 +17,10 @@ const Game = function (board, utility) {
     let marker = 'naught';
 
     const drawBoard = () => {
+        console.log(board);
+        console.log('board: ', board.getBoard());
         for (let i = 0; i < 10; i++) {
-            utility.changeText(board[i], i);
+            utility.changeText(board.getBoard()[i], i.toString());
         }
     }
     // track current player
