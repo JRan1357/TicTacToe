@@ -170,12 +170,4 @@ const Board = function () {
 const utility = Utility();
 const board = Board();
 const game = Game(board);
-const player = Player();
-
-
-// board.addMarker('naught', 0);
-// board.addMarker('cross', 5);
-// board.addMarker('naught', 2);
-// board.addMarker('cross', 7);
-// board.addMarker('naught', 1);
 
