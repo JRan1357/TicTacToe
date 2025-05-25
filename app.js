@@ -16,6 +16,7 @@ const Game = function (board, utility) {
     let turnCount = 0;
     let marker = 'naught';
 
+
     const drawBoard = () => {
         console.log(board);
         console.log('board: ', board.getBoard());
@@ -48,8 +49,16 @@ const Game = function (board, utility) {
 
 
 const Player = function () {
-    const createPlayer = (name, marker) => {
-        
+    let player1Score = 0;
+    let player2Score = 0;
+
+    const addPoint = (playerScore) => {
+        playerScore++
+    }
+
+    return {
+        player1Score,
+        player2Score
     }
 }
 
