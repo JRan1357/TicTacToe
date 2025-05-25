@@ -16,7 +16,6 @@ const Game = function (board, utility) {
     let turnCount = 0;
     let marker = 'naught';
 
-
     const drawBoard = () => {
         console.log(board);
         console.log('board: ', board.getBoard());
@@ -36,7 +35,6 @@ const Game = function (board, utility) {
         board.addMarker(marker, parseInt(id))
         console.log(board.getBoard());
 
-
         turnCount++
         drawBoard(board);
     }
@@ -49,19 +47,25 @@ const Game = function (board, utility) {
 
 
 const Player = function () {
-    let player1Score = 0;
-    let player2Score = 0;
+    let score = {
+        'naughts': 0,
+        'crosses': 0
+    };
 
     const addPoint = (playerScore) => {
         playerScore++
-    }
+    };
+
+    const getScore = (marker) => {
+        return score[marker];
+    };
 
     return {
-        player1Score,
-        player2Score
-    }
-}
-
+        getScore,
+        addPoint
+    };
+};
+    
 const Board = function () {
     const markers = {
         'naught': 'o',
