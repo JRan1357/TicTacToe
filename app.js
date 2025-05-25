@@ -1,7 +1,38 @@
 "use strict";
 
-const Game = function (board) {
-    
+const Utility = function () {
+    const changeText = (text, targetID) => {
+        let html = document.getElementById(targetID);
+        html.textContent = text;
+    }
+
+    return {
+        changeText
+    }
+}
+
+
+
+
+const Game = function (board, utility) {
+    // track current player
+
+    // switch player after placement
+
+    // send marker position to Board module
+
+    // draw board from board index
+
+    const mainLoop = () => {
+        const player = 'naughts'
+
+        // display current player
+    }
+
+    const displayPlayer = (player) => {
+
+    }
+
 };
 
 
@@ -118,9 +149,12 @@ const Board = function () {
     };
 }
 
+const utility = Utility();
 const board = Board();
 const game = Game(board);
 const player = Player();
+
+utility.changeText('yert', 'currentPlayer');
 
 // board.addMarker('naught', 0);
 // board.addMarker('cross', 5);
