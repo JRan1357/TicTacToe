@@ -16,11 +16,9 @@ const Game = function (board, utility) {
     let turnCount = 0;
     let marker = 'naught';
 
-    const drawBoard = () => {
+    const drawBoard = (id) => {
         console.log('board: ', board.getBoard());
-        for (let i = 0; i < 10; i++) {
-            utility.changeText(board.getBoard()[i], i.toString());
-        };
+        utility.changeText(board.getBoard()[id], id)
     };
 
     const inputMarker = (id) => {
@@ -35,7 +33,7 @@ const Game = function (board, utility) {
         console.log(board.getBoard());
 
         turnCount++
-        drawBoard(board);
+        drawBoard(id, board);
     };
 
     return {
