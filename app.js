@@ -41,7 +41,6 @@ const Game = function (board, utility) {
     }
  };
 
-
 const Players = function () {
     let score = {
         'naught': 0,
@@ -120,7 +119,7 @@ const Board = function (players) {
         } else {
             console.log('Position already occupied!');
         };
-        checkWin(marker);
+        checkWin(marker, players);
     };
 
     const drawToBoard = (position, marker) => {
@@ -145,6 +144,7 @@ const Board = function (players) {
     };
 
     const checkWin = (marker, players) => {
+        console.log('players: ', players);
         console.log('marker: ', marker);
         winConditions.forEach((array) => {
             let count = 0;
