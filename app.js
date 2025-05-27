@@ -17,7 +17,6 @@ const Game = function (board, utility) {
     let marker = 'naught';
 
     const drawBoard = () => {
-        console.log(board);
         console.log('board: ', board.getBoard());
         for (let i = 0; i < 10; i++) {
             utility.changeText(board.getBoard()[i], i.toString());
@@ -41,19 +40,19 @@ const Game = function (board, utility) {
 
     return {
         inputMarker,
-    };
+    }
+ };
 
-};
 
-
-const Player = function () {
+const Players = function () {
     let score = {
-        'naughts': 0,
-        'crosses': 0
+        'naught': 0,
+        'cross': 0
     };
 
-    const addPoint = (playerScore) => {
-        playerScore++
+    const addPoint = (marker) => {
+        console.log('adding point to: ', marker);
+        score[marker]++;
     };
 
     const getScore = (marker) => {
@@ -66,7 +65,7 @@ const Player = function () {
     };
 };
     
-const Board = function () {
+const Board = function (players) {
     const markers = {
         'naught': 'o',
         'cross': 'x'
@@ -81,38 +80,38 @@ const Board = function () {
     let winConditions = [
         // horizontal
         ['c', 'c', 'c',
-            ' ', ' ', ' ',
-            ' ', ' ', ' '],
+        ' ', ' ', ' ',
+        ' ', ' ', ' '],
         
         [' ', ' ', ' ',
-            'c', 'c', 'c',
-            ' ', ' ', ' '],
+        'c', 'c', 'c',
+        ' ', ' ', ' '],
 
         [' ', ' ', ' ',
-            ' ', ' ', ' ',
-            'c', 'c', 'c'],
+        ' ', ' ', ' ',
+        'c', 'c', 'c'],
 
         //vertical
         ['c', ' ', ' ',
-            'c', ' ', ' ',
-            'c', ' ', ' '],
+        'c', ' ', ' ',
+        'c', ' ', ' '],
 
         [' ', 'c', ' ',
-            ' ', 'c', ' ',
-            ' ', 'c', ' '],
+        ' ', 'c', ' ',
+        ' ', 'c', ' '],
 
         [' ', ' ', 'c',
-            ' ', ' ', 'c',
-            ' ', ' ', 'c'],
+        ' ', ' ', 'c',
+        ' ', ' ', 'c'],
         
         // diagonal
         ['c', ' ', ' ',
-            ' ', 'c', ' ',
-            ' ', ' ', 'c'],
+        ' ', 'c', ' ',
+        ' ', ' ', 'c'],
         
         [' ', ' ', 'c',
-            ' ', 'c', ' ',
-            'c', ' ', ' '],
+        ' ', 'c', ' ',
+        'c', ' ', ' '],
     ]
 
     const addMarker = (marker, position) => {
@@ -147,7 +146,7 @@ const Board = function () {
         };
     };
 
-    const checkWin = (marker) => {
+    const checkWin = (marker, players) => {
         console.log('marker: ', marker);
         winConditions.forEach((array) => {
             let count = 0;
@@ -158,10 +157,11 @@ const Board = function () {
                 };
                 if (count == 3) {
                     console.log(`${marker} wins!`);
-                    
-                };
-            });
-        });
+                    players.addPoint(marker);
+                    alert(marker, "wins!")
+                }
+            })
+        })
     };
 
     return {
@@ -170,10 +170,10 @@ const Board = function () {
         addMarker,
         checkWin,
 
-    };
+    }
 };
-
+const players = Players();
 const utility = Utility();
-const board = Board();
+const board = Board(players);
 const game = Game(board, utility);
 
