@@ -36,16 +36,27 @@ const Game = function (board, utility) {
         drawBoard(id, board);
     };
 
+    const reset = () => {
+        console.log('resetting board');
+        board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+        drawBoard();
+    }
+
     return {
         inputMarker,
+        reset
     }
  };
 
-const Players = function () {
+const Players = function (utility) {
     let score = {
         'naught': 0,
         'cross': 0
     };
+
+    let playerNames = {
+
+    }
 
     const addPoint = (marker) => {
         console.log('adding point to: ', marker);
@@ -56,13 +67,21 @@ const Players = function () {
         return score[marker];
     };
 
+    const setNames = () => {
+        playerNames.name1 = prompt("Player 1 Name:");
+        playerNames.name2 = prompt("Player 2 Name:");
+        utility.changeText(playerNames.name1, 'name1');
+        utility.changeText(playerNames.name2, 'name2');
+    }
+
     return {
         getScore,
-        addPoint
+        addPoint,
+        setNames,
     };
 };
     
-const Board = function (players) {
+const Board = function (players, game) {
     const markers = {
         'naught': 'o',
         'cross': 'x'
@@ -156,11 +175,12 @@ const Board = function (players) {
                 if (count == 3) {
                     console.log(`${marker} wins!`);
                     players.addPoint(marker);
-                    alert(marker, "wins!")
                 }
             })
         })
     };
+
+
 
     return {
         getBoard,
@@ -170,8 +190,8 @@ const Board = function (players) {
 
     }
 };
-const players = Players();
 const utility = Utility();
+const players = Players(utility);
 const board = Board(players);
 const game = Game(board, utility);
 

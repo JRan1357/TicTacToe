@@ -11,6 +11,9 @@
         <div id="title">
             <h1>TicTacToe</h1>
         </div>
+        <div>
+            <button onclick="game.reset()">Reset</button>
+        </div>
         <div id="main">
         <div id="board">
         <div class="cell" id="0" onclick="game.inputMarker(id)"></div>
@@ -30,10 +33,10 @@
                     <td><h2>Current Player:</h2></td><td><h2 id="currentPlayer">Naughts</h2></td>
                 </tr>
                 <tr>
-                    <td><h2>Naughts:</h2></td><td><h2>0</h2></td>
+                    <td><h2 id="name1">Naughts:</h2></td><td><h2>0</h2></td>
                 </tr>
                 <tr>
-                    <td><h2>Crosses</h2></td><td><h2>0</h2></td>
+                    <td><h2 id="name2">Crosses</h2></td><td><h2>0</h2></td>
                 </tr>
             </table>
         </div>
