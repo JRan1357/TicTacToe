@@ -7,8 +7,14 @@ const Utility = function () {
         html.textContent = text;
     };
 
+    const updateScoreBoard = (marker, score) => {
+        console.log('updating ', marker, 'score, to ', score);
+        changeText(score, marker);
+    }
+
     return {
-        changeText
+        changeText,
+        updateScoreBoard,
     };
 };
 
@@ -16,9 +22,13 @@ const Game = function (board, utility) {
     let turnCount = 0;
     let marker = 'naught';
 
+    // draws markers on board, and updates scores
     const drawBoard = (id) => {
         console.log('board: ', board.getBoard());
         utility.changeText(board.getBoard()[id], id)
+
+        utility.updateScoreBoard('naught', players.getScore('naught'));
+        utility.updateScoreBoard('cross', players.getScore('cross'));
     };
 
     const inputMarker = (id) => {
@@ -36,15 +46,9 @@ const Game = function (board, utility) {
         drawBoard(id, board);
     };
 
-    const reset = () => {
-        console.log('resetting board');
-        board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
-        drawBoard();
-    }
-
     return {
         inputMarker,
-        reset
+    
     }
  };
 
@@ -81,7 +85,7 @@ const Players = function (utility) {
     };
 };
     
-const Board = function (players, game) {
+const Board = function (players) {
     const markers = {
         'naught': 'o',
         'cross': 'x'
@@ -150,6 +154,10 @@ const Board = function (players, game) {
         return board
     };
 
+    const setBoard = () => {
+        board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+    }
+
     const getMarkerBoards = () => {
         return markerBoards
     };
@@ -184,6 +192,7 @@ const Board = function (players, game) {
 
     return {
         getBoard,
+        setBoard,
         getMarkerBoards,
         addMarker,
         checkWin,
@@ -193,5 +202,5 @@ const Board = function (players, game) {
 const utility = Utility();
 const players = Players(utility);
 const board = Board(players);
-const game = Game(board, utility);
+const game = Game(board, utility, players);
 
