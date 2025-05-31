@@ -23,7 +23,7 @@ const Game = function (board, utility, players) {
     let marker = 'naught';
     // check if new game
     console.log('Score is: ', players.getScore('naught'), players.getScore('cross'))
-    if (players.getScore['naught'] == 0 && players.getScore['cross'] == 0) {
+    if (players.getScore('naught') == 0 && players.getScore('cross') == 0) {
         console.log('Setting names');
         players.setNames();
     }
