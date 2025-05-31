@@ -18,9 +18,16 @@ const Utility = function () {
     };
 };
 
-const Game = function (board, utility) {
+const Game = function (board, utility, players) {
     let turnCount = 0;
     let marker = 'naught';
+    // check if new game
+    console.log('Score is: ', players.getScore('naught'), players.getScore('cross'))
+    if (players.getScore['naught'] == 0 && players.getScore['cross'] == 0) {
+        console.log('Setting names');
+        players.setNames();
+    }
+    
 
     // draws markers on board, and updates scores
     const drawBoard = (id) => {
@@ -78,10 +85,15 @@ const Players = function (utility) {
         utility.changeText(playerNames.name2, 'name2');
     }
 
+    const getNames = () => {
+        return playerNames
+    }
+
     return {
         getScore,
         addPoint,
         setNames,
+        getNames,
     };
 };
     
@@ -160,7 +172,7 @@ const Board = function (players, utility) {
         board.forEach((item, index) => {
             utility.changeText(item, index);
         })
-        
+
         markerBoards = {
             'naught': [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
             'cross': [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
@@ -194,7 +206,9 @@ const Board = function (players, utility) {
                     console.log(`${marker} wins!`);
                     players.addPoint(marker);
                     // reset board
+                    alert(players.marker, 'Wins!');
                     setBoard();
+                    count = 0;
                 }
             })
         })
