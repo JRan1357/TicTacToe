@@ -85,7 +85,7 @@ const Players = function (utility) {
     };
 };
     
-const Board = function (players) {
+const Board = function (players, utility) {
     const markers = {
         'naught': 'o',
         'cross': 'x'
@@ -155,7 +155,12 @@ const Board = function (players) {
     };
 
     const setBoard = () => {
+        console.log('RESETTING BOARD');
         board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+        board.forEach((item, index) => {
+            console.log('item: ', item, 'index', index);
+            utility.changeText(item, index);
+        })
     }
 
     const getMarkerBoards = () => {
@@ -183,6 +188,9 @@ const Board = function (players) {
                 if (count == 3) {
                     console.log(`${marker} wins!`);
                     players.addPoint(marker);
+                    // reset board
+                    setBoard();
+                    count = 0;
                 }
             })
         })
@@ -201,6 +209,6 @@ const Board = function (players) {
 };
 const utility = Utility();
 const players = Players(utility);
-const board = Board(players);
+const board = Board(players, utility);
 const game = Game(board, utility, players);
 
