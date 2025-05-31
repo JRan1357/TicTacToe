@@ -158,9 +158,13 @@ const Board = function (players, utility) {
         console.log('RESETTING BOARD');
         board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
         board.forEach((item, index) => {
-            console.log('item: ', item, 'index', index);
             utility.changeText(item, index);
         })
+        
+        markerBoards = {
+            'naught': [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            'cross': [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+        };
     }
 
     const getMarkerBoards = () => {
@@ -178,6 +182,7 @@ const Board = function (players, utility) {
     const checkWin = (marker, players) => {
         console.log('players: ', players);
         console.log('marker: ', marker);
+
         winConditions.forEach((array) => {
             let count = 0;
             array.forEach((item, index) => {
@@ -190,7 +195,6 @@ const Board = function (players, utility) {
                     players.addPoint(marker);
                     // reset board
                     setBoard();
-                    count = 0;
                 }
             })
         })
