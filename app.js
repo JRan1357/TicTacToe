@@ -51,6 +51,7 @@ const Game = function (board, utility, players) {
 
         turnCount++
         drawBoard(id, board);
+        
     };
 
     return {
@@ -155,11 +156,13 @@ const Board = function (players, utility) {
             console.log('Position already occupied!');
         };
         checkWin(marker, players);
+        
     };
 
     const drawToBoard = (position, marker) => {
         board.splice(position, 1, markers[marker]);
         console.log(board);
+        
     };
     
     const getBoard = () => {
@@ -206,7 +209,7 @@ const Board = function (players, utility) {
                     console.log(`${marker} wins!`);
                     players.addPoint(marker);
                     // reset board
-                    alert(players.marker, 'Wins!');
+                    
                     setBoard();
                     count = 0;
                 }
