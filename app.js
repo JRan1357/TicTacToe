@@ -217,8 +217,6 @@ const Board = function (players, utility) {
         })
     };
 
-
-
     return {
         getBoard,
         setBoard,
