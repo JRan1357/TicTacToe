@@ -55,7 +55,6 @@ const Game = function (board, utility, players) {
 
     return {
         inputMarker,
-    
     }
  };
 
@@ -65,9 +64,8 @@ const Players = function (utility) {
         'cross': 0
     };
 
-    let playerNames = {
-
-    }
+    // empty object to store names
+    let playerNames = {};
 
     const addPoint = (marker) => {
         console.log('adding point to: ', marker);
