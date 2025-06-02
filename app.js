@@ -51,7 +51,6 @@ const Game = function (board, utility, players) {
 
         turnCount++
         drawBoard(id, board);
-        
     };
 
     return {
@@ -155,14 +154,12 @@ const Board = function (players, utility) {
         } else {
             console.log('Position already occupied!');
         };
-        checkWin(marker, players);
-        
+        checkWin(marker, players); 
     };
 
     const drawToBoard = (position, marker) => {
         board.splice(position, 1, markers[marker]);
         console.log(board);
-        
     };
     
     const getBoard = () => {
