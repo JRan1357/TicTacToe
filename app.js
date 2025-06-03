@@ -41,7 +41,7 @@ const Utility = function () {
 };
 
 // game module is intended to store core functionality that doesn't fit into one of the
-// more specialised modules. It also contains a small piece of code that is run on instantitiation to check 
+// more specialised modules. It also contains a small piece of code that is run on instantitiation to check
 // if it is the first round, and if so, requests player names.
 
 // contained variables:
@@ -51,6 +51,9 @@ const Utility = function () {
 // contained functions:
     // drawBoard(),
     // inputMarker(),
+    
+// returns: 
+    // inputMarker
 
 const Game = function (board, utility, players) {
     let turnCount = 0;
@@ -64,7 +67,11 @@ const Game = function (board, utility, players) {
     }
     
 
-    // draws markers on board, and updates scores
+    // in:
+        // id (string): string id for target html
+    // out: none
+    // process: retrieves board array, and accesses index referenced by ID, updates that cell in displayed board with content of index
+        // also updates displayed score from players.score object
     const drawBoard = (id) => {
         console.log('board: ', board.getBoard());
         utility.changeText(board.getBoard()[id], id)
