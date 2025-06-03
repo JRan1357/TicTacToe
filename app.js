@@ -1,6 +1,10 @@
 "use strict";
 
+// utility module contains basic functions that may be of use anywhere
 const Utility = function () {
+    // in: text (string), html ID
+    // process: changes target text
+    // out: none
     const changeText = (text, targetID) => {
         console.log('target id:', targetID, '\ntext: ', text);
         let html = document.getElementById(targetID);
