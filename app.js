@@ -1,15 +1,33 @@
 "use strict";
 
 // utility module contains basic functions that may be of use anywhere
+// contained functions:
+    // changeText(),
+    // updateScoreBoard()
+    
+// returns: 
+    // changeText()
+    // updateScoreBoard()
+
 const Utility = function () {
-    // in: text (string), html ID
-    // process: changes target text
+
+    // in: 
+        // text (string)
+        // html ID (string)
     // out: none
+    // process: changes target text
+
     const changeText = (text, targetID) => {
         console.log('target id:', targetID, '\ntext: ', text);
         let html = document.getElementById(targetID);
         html.textContent = text;
     };
+
+    // in:
+        // marker (string): string referencing which marker is currently in play, 'naught' or 'cross'
+        // score (int): object from players module, contains string key of marker, int value of current score
+    // out: none
+    // process: updates score text to values stored in players.score 
 
     const updateScoreBoard = (marker, score) => {
         console.log('updating ', marker, 'score, to ', score);
@@ -22,9 +40,22 @@ const Utility = function () {
     };
 };
 
+// game module is intended to store core functionality that doesn't fit into one of the
+// more specialised modules. It also contains a small piece of code that is run on instantitiation to check 
+// if it is the first round, and if so, requests player names.
+
+// contained variables:
+    // turn count (int)
+    // marker (string)
+
+// contained functions:
+    // drawBoard(),
+    // inputMarker(),
+
 const Game = function (board, utility, players) {
     let turnCount = 0;
     let marker = 'naught';
+
     // check if new game
     console.log('Score is: ', players.getScore('naught'), players.getScore('cross'))
     if (players.getScore('naught') == 0 && players.getScore('cross') == 0) {
