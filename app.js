@@ -11,11 +11,14 @@
 
 const Utility = function () {
 
-    // in: 
+    // in:
         // text (string)
         // html ID (string)
     // out: none
     // process: changes target text
+    
+    // functions called: 
+        // document.getElementById()
 
     const changeText = (text, targetID) => {
         console.log('target id:', targetID, '\ntext: ', text);
@@ -28,6 +31,9 @@ const Utility = function () {
         // score (int): object from players module, contains string key of marker, int value of current score
     // out: none
     // process: updates score text to values stored in players.score 
+
+    // functions called: 
+        // utility.changeText()
 
     const updateScoreBoard = (marker, score) => {
         console.log('updating ', marker, 'score, to ', score);
@@ -52,6 +58,11 @@ const Utility = function () {
     // drawBoard(),
     // inputMarker(),
     
+// input modules:
+    // board, 
+    // utility
+    // players
+    
 // returns: 
     // inputMarker
 
@@ -72,6 +83,11 @@ const Game = function (board, utility, players) {
     // out: none
     // process: retrieves board array, and accesses index referenced by ID, updates that cell in displayed board with content of index
         // also updates displayed score from players.score object
+    
+    // functions called:
+        // utility.changeText()
+        // utility.updateScoreBoard()
+        
     const drawBoard = (id) => {
         console.log('board: ', board.getBoard());
         utility.changeText(board.getBoard()[id], id)
@@ -80,6 +96,20 @@ const Game = function (board, utility, players) {
         utility.updateScoreBoard('cross', players.getScore('cross'));
     };
 
+
+    // in:
+        // id (string): string id for target html
+    // out: none
+    // process: uses turnCount to determine current player
+        // passes board.addMarker() id as int
+        // increments turnCount
+        // passes game.drawBoard(), id and board object
+
+    // functions called:
+        // board.addMarker()
+        // board.getBoard()
+        // game.drawBoard()
+        
     const inputMarker = (id) => {
         // switches marker between turns
         if (turnCount % 2 == 0) {
