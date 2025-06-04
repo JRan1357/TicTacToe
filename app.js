@@ -128,7 +128,18 @@ const Game = function (board, utility, players) {
     return {
         inputMarker,
     }
- };
+};
+ 
+// Players module contains functions relating to controlling player objects
+// Contained functions:
+    // addPoint()
+    // getScore()
+    // setNames()
+    // getNames()
+
+// Contained objects:
+    // playerNames
+    // score
 
 const Players = function (utility) {
     let score = {
@@ -139,14 +150,34 @@ const Players = function (utility) {
     // empty object to store names
     let playerNames = {};
 
+    // in:
+        // marker (string)
+    // out: 
+        // none
+    // process: 
+        // increments score value of marker in score object
+    
     const addPoint = (marker) => {
         console.log('adding point to: ', marker);
         score[marker]++;
     };
 
+    // in:
+        // marker (string)
+    // out: 
+        // score value
+    // process:
+        // returns score value
+        
     const getScore = (marker) => {
         return score[marker];
     };
+
+    // in: none
+    // out: none
+    // process: 
+        // assigns name to playerNames object
+        // changes displayed names to player names
 
     const setNames = () => {
         playerNames.name1 = prompt("Player 1 Name:");
@@ -155,6 +186,11 @@ const Players = function (utility) {
         utility.changeText(playerNames.name2, 'name2');
     }
 
+    // in: none
+    // out: playerNames
+    // process: 
+        // returns playerNames object
+        
     const getNames = () => {
         return playerNames
     }
@@ -166,6 +202,10 @@ const Players = function (utility) {
         getNames,
     };
 };
+
+// The board modules is intended to contain functions and variables
+// relating to board logic, such as placement of markers, win conditions 
+//  and displaying markers on the board
     
 const Board = function (players, utility) {
     const markers = {
