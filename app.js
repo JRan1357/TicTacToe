@@ -210,7 +210,8 @@ const Players = function (utility) {
 // contained variables:
     // markers: obj containing strings, i.e key is naught, value is o
     // markerBoards: obj containing arrays representing x and o placements
-    // board: array representing the main board
+    // board: array representing the main boardqw
+    
     
 const Board = function (players, utility) {
     const markers = {
