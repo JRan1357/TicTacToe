@@ -118,7 +118,7 @@ const Game = function (board, utility, players) {
             marker = 'cross';
         };
         
-        board.addMarker(marker, parseInt(id))
+        board.addMarker(marker, parseInt(id));
         console.log(board.getBoard());
 
         turnCount++
