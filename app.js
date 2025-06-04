@@ -204,8 +204,13 @@ const Players = function (utility) {
 };
 
 // The board modules is intended to contain functions and variables
-// relating to board logic, such as placement of markers, win conditions 
+// relating to board logic, such as placement of markers, win conditions
 //  and displaying markers on the board
+
+// contained variables:
+    // markers: obj containing strings, i.e key is naught, value is o
+    // markerBoards: obj containing arrays representing x and o placements
+    // board: array representing the main board
     
 const Board = function (players, utility) {
     const markers = {
